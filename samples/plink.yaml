@@ -11,7 +11,7 @@ spec:
     privateServiceConnection:
     - isManualConnection: false
       name: example-privateserviceconnection
-      privateConnectionResourceId: /subscriptions/d3fc4979-9536-42c0-82d0-24800e05df25/resourcegroups/mis_pruebas/providers/Microsoft.Storage/storageAccounts/mytempsta01
+      privateConnectionResourceId: /subscriptions/d3fc4979-9536-42c0-82d0-24800e05df25/resourceGroups/mispruebas/providers/Microsoft.Storage/storageAccounts/mynewsta01
     resourceGroupNameRef:
       name: mis-pruebas
     subnetIdRef:
