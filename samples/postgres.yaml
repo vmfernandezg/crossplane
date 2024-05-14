@@ -1,4 +1,21 @@
 apiVersion: dbforpostgresql.azure.upbound.io/v1beta1
+kind: FirewallRule
+metadata:
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    endIpAddress: 88.26.90.27
+    resourceGroupNameSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example-dbforpostgresql
+    serverNameSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    startIpAddress: 88.26.90.27
+---
+apiVersion: dbforpostgresql.azure.upbound.io/v1beta1
 kind: Database
 metadata:
   annotations:
