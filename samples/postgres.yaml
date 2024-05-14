@@ -1,54 +1,72 @@
-#apiVersion: azure.crossplane.io/v1alpha3
+apiVersion: dbforpostgresql.azure.upbound.io/v1beta1
+kind: Database
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dbforpostgresql/v1beta1/database
+  labels:
+    testing.upbound.io/example-name: example
+  name: example-database
+spec:
+  forProvider:
+    charset: UTF8
+    collation: English_United States.1252
+    resourceGroupNameSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    serverNameSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+
+---
+
+apiVersion: dbforpostgresql.azure.upbound.io/v1beta1
+kind: Server
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dbforpostgresql/v1beta1/database
+  labels:
+    testing.upbound.io/example-name: example
+  name: example-server-for-database
+spec:
+  forProvider:
+    administratorLogin: psqladmin
+    administratorLoginPasswordSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    autoGrowEnabled: true
+    backupRetentionDays: 7
+    geoRedundantBackupEnabled: false
+    location: West US 2
+    resourceGroupNameSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    skuName: B_Gen5_2
+    sslEnforcementEnabled: true
+    storageMb: 5120
+    version: "9.5"
+
+---
+
 apiVersion: azure.upbound.io/v1beta1
 kind: ResourceGroup
 metadata:
+  annotations:
+    meta.upbound.io/example-id: dbforpostgresql/v1beta1/database
+  labels:
+    testing.upbound.io/example-name: example
   name: example-rg
 spec:
-  location: West US 2
-  providerConfigRef:
-    name: example
----
-#apiVersion: database.azure.crossplane.io/v1beta1
-apiVersion: database.azure.upbound.io/v1beta1
-kind: PostgreSQLServer
-metadata:
-  name: example-psql
-  labels:
-    example: "true"
-spec:
   forProvider:
-    administratorLogin: myadmin
-    resourceGroupNameRef:
-      name: example-rg
     location: West US 2
-    minimalTlsVersion: TLS1_2
-    sslEnforcement: Enabled
-    version: "9.6"
-    sku:
-      # Note that Basic servers do not support virtual network rules
-      tier: GeneralPurpose
-      capacity: 2
-      family: Gen5
-    storageProfile:
-      storageMB: 20480
-  writeConnectionSecretToRef:
-    namespace: crossplane-system
-    name: example-psql
-  providerConfigRef:
-    name: default
+
 ---
-#apiVersion: database.azure.crossplane.io/v1beta1
-apiVersion: database.azure.upbound.io/v1beta1
-kind: PostgreSQLServerConfiguration
+
+apiVersion: v1
+data:
+  example-key: dXBiMHVuZHIwY2s1ITMxMzM3
+kind: Secret
 metadata:
-  name: example-psql-configuration
-spec:
-  providerConfigRef:
-    name: default
-  forProvider:
-    resourceGroupNameRef:
-      name: example-rg
-    serverNameRef:
-      name: example-psql
-    name: max_wal_senders
-    value: "12"
+  name: example-secret
+  namespace: upbound-system
+type: Opaque
