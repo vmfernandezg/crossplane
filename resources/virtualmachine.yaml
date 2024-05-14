@@ -3,4 +3,4 @@ kind: VirtualMachine
 metadata:
   name: my-vm
 spec: 
-  location: "EU"
+  location: "US"
