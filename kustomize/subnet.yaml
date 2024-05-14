@@ -1,4 +1,5 @@
-apiVersion: network.azure.crossplane.io/v1alpha3
+#apiVersion: network.azure.crossplane.io/v1alpha3
+apiVersion: network.azure.upbound.io/v1beta1
 kind: Subnet
 metadata:
   name: basic-example-sub
