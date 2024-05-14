@@ -1,0 +1,45 @@
+apiVersion: database.azure.crossplane.io/v1beta1
+kind: PostgreSQLServerConfiguration
+metadata:
+  name: basic-example-psql-configuration
+spec:
+  providerConfigRef:
+    name: default
+  forProvider:
+    resourceGroupNameRef:
+      name: basic-example-rg
+    serverNameRef:
+      name: basic-example-psql
+    name: max_wal_senders
+    value: "12"
+---
+apiVersion: database.azure.crossplane.io/v1alpha3
+kind: PostgreSQLServerFirewallRule
+metadata:
+  name: basic-example-psql-fwrule
+spec:
+  providerConfigRef:
+    name: default
+  forProvider:
+    resourceGroupNameRef:
+      name: basic-example-rg
+    serverNameRef:
+      name: basic-example-psql
+    properties:
+      startIpAddress: "0.0.0.0"
+      endIpAddress: "0.0.0.0"
+---
+apiVersion: database.azure.crossplane.io/v1alpha3
+kind: PostgreSQLServerVirtualNetworkRule
+metadata:
+  name: basic-example-psql-vnrule
+spec:
+  providerConfigRef:
+    name: default
+  resourceGroupNameRef:
+    name: basic-example-rg
+  serverNameRef:
+    name: basic-example-psql
+  properties:
+    virtualNetworkSubnetIdRef:
+      name: basic-example-sub
