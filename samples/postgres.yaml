@@ -1,4 +1,5 @@
-apiVersion: azure.crossplane.io/v1alpha3
+#apiVersion: azure.crossplane.io/v1alpha3
+apiVersion: azure.upbound.io/v1beta1
 kind: ResourceGroup
 metadata:
   name: example-rg
@@ -7,7 +8,8 @@ spec:
   providerConfigRef:
     name: example
 ---
-apiVersion: database.azure.crossplane.io/v1beta1
+#apiVersion: database.azure.crossplane.io/v1beta1
+apiVersion: database.azure.upbound.io/v1beta1
 kind: PostgreSQLServer
 metadata:
   name: example-psql
@@ -35,7 +37,8 @@ spec:
   providerConfigRef:
     name: default
 ---
-apiVersion: database.azure.crossplane.io/v1beta1
+#apiVersion: database.azure.crossplane.io/v1beta1
+apiVersion: database.azure.upbound.io/v1beta1
 kind: PostgreSQLServerConfiguration
 metadata:
   name: example-psql-configuration
