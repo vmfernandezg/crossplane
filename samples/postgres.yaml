@@ -9,7 +9,7 @@ spec:
     endIpAddress: 88.26.90.27
     resourceGroupNameSelector:
       matchLabels:
-        testing.upbound.io/example-name: example-dbforpostgresql
+        testing.upbound.io/example-name: example
     serverNameSelector:
       matchLabels:
         testing.upbound.io/example-name: example
