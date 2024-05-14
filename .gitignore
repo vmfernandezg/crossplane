@@ -1,2 +1,4 @@
 provider.yaml
 providerconfig.yaml
+.vscode/settings.json
+.gitignore

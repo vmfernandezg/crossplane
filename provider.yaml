@@ -3,7 +3,7 @@
 # metadata:
 #   name: upbound-provider-azure
 # spec:
-#   package: xpkg.upbound.io/upbound/provider-azure:v0.27.0
+#   package: xpkg.upbound.io/upbound/provider-azure:v0.42.1
 ---
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
@@ -32,3 +32,10 @@ metadata:
   name: provider-azure-compute
 spec:
   package: xpkg.upbound.io/upbound/provider-azure-compute:v0.42.1
+---
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-azure-dbforpostgresql
+spec:
+  package: xpkg.upbound.io/upbound/provider-azure-dbforpostgresql:v1.1.0

@@ -1,3 +1,20 @@
 {
-    "sarif-viewer.connectToGithubCodeScanning": "off"
+    "sarif-viewer.connectToGithubCodeScanning": "off",
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "previewLimit": 50,
+            "server": "example-server-for-database.postgres.database.azure.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "example-server-for-database.postgres.database.azure.com",
+            "database": "example-database",
+            "username": "psqladmin@example-server-for-database.postgres.database.azure.com",
+            "password": "upb0undr0ck5!31337"
+        }
+    ]
 }
