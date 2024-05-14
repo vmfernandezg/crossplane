@@ -4,5 +4,5 @@ resources:
 - rg.yaml
 - network.yaml
 - subnet.yaml
-- postgres.yaml
-- pg-config.yaml
+- postgre.yaml
+- postgre-config.yaml
