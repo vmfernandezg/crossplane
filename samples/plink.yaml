@@ -13,7 +13,7 @@ spec:
       name: example-privateserviceconnection
       privateConnectionResourceId: /subscriptions/d3fc4979-9536-42c0-82d0-24800e05df25/resourcegroups/mis_pruebas/providers/Microsoft.Storage/storageAccounts/mytempsta01
     resourceGroupNameRef:
-      name: mis_pruebas
+      name: mis-pruebas
     subnetIdRef:
       name: service
 
@@ -21,7 +21,7 @@ spec:
 apiVersion: azure.upbound.io/v1beta1
 kind: ResourceGroup
 metadata:
-  name: mis_pruebas
+  name: mis-pruebas
   annotations:
     upjet.upbound.io/manual-intervention: "The dependent resource PrivateEndpoint needs a manual patching and is thus skipped."
     meta.upbound.io/example-id: network/v1beta1/privateendpoint
@@ -43,7 +43,7 @@ spec:
   forProvider:
     location: West US 2
     resourceGroupNameRef:
-      name: mis_pruebas
+      name: mis-pruebas
     addressSpace:
       - "10.0.0.0/16"
     # dnsServers:
@@ -62,7 +62,7 @@ spec:
   forProvider:
     enforcePrivateLinkServiceNetworkPolicies: true
     resourceGroupNameRef:
-      name: mis_pruebas
+      name: mis-pruebas
     virtualNetworkNameRef:
       name: example-vn-for-plink
     addressPrefixes:
