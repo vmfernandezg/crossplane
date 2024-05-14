@@ -12,6 +12,8 @@ spec:
     - isManualConnection: false
       name: example-privateserviceconnection
       privateConnectionResourceId: /subscriptions/d3fc4979-9536-42c0-82d0-24800e05df25/resourceGroups/mispruebas/providers/Microsoft.Storage/storageAccounts/mynewsta01
+      groupIds:
+      - blob
     resourceGroupNameRef:
       name: mis-pruebas
     subnetIdRef:
